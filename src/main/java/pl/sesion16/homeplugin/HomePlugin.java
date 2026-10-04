@@ -341,6 +341,9 @@ public class HomePlugin extends JavaPlugin implements Listener, CommandExecutor 
         if (!(event.getEntity() instanceof Player victim)) return;
         if (!activeTeleports.containsKey(victim.getUniqueId())) return;
 
+        boolean cancelOnPlayerDamage = getConfig().getBoolean("settings.cancel-on-player-damage", true);
+        if (!cancelOnPlayerDamage) return;
+
         boolean isPlayerAttacker = false;
         if (event.getDamager() instanceof Player) {
             isPlayerAttacker = true;
@@ -348,12 +351,9 @@ public class HomePlugin extends JavaPlugin implements Listener, CommandExecutor 
             isPlayerAttacker = true;
         }
 
-        boolean cancelOnPlayer = getConfig().getBoolean("settings.cancel-on-player-damage", true);
-        boolean cancelOnMob = getConfig().getBoolean("settings.cancel-on-mob-damage", false);
-
-        if ((isPlayerAttacker && cancelOnPlayer) || (!isPlayerAttacker && cancelOnMob)) {
+        if (isPlayerAttacker) {
             String title = getConfig().getString("titles.teleport-cancelled-damage.title", "&cTeleportacja przerwana!");
-            String subtitle = getConfig().getString("titles.teleport-cancelled-damage.subtitle", "&7Zostałeś zaatakowany!");
+            String subtitle = getConfig().getString("titles.teleport-cancelled-damage.subtitle", "&7Zostałeś zaatakowany przez gracza!");
             cancelTeleport(victim, title, subtitle);
         }
     }
