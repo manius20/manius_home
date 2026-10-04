@@ -1,0 +1,37 @@
+name: Build HomePlugin
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobieranie kodu repozytorium
+        uses: actions/checkout@v4
+
+      - name: Konfiguracja Javy 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Budowanie pliku JAR za pomocą Mavena
+        run: mvn clean package --file pom.xml
+
+      - name: Udostępnianie gotowego pliku .jar jako Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HomePlugin
+          path: target/*.jar
+          if-no-files-found: error
