@@ -1,0 +1,47 @@
+# ======================================================
+#             HomePlugin - Konfiguracja (Icehost)
+# ======================================================
+
+settings:
+  max-homes: 3                   # Maksymalna liczba home'ów dla gracza
+  teleport-delay: 10             # Czas odliczania do teleportacji w sekundach
+  cancel-on-move: true           # Czy ruch gracza przerywa teleportację
+  cancel-on-player-damage: true  # Czy atak innego GRACZA przerywa teleportację
+  cancel-on-mob-damage: false    # Czy atak MOBA przerywa teleportację
+
+gui:
+  home-selector-title: "&8Wybierz swój Home"
+  bed-item-name: "&a%home_name%"
+  bed-item-lore:
+    - "&7Kliknij, aby się przeteleportować (%delay%s)"
+
+messages:
+  prefix: "&8[&aHomePlugin&8] "
+  player-only: "&cTa komenda jest przeznaczona tylko dla graczy!"
+  limit-reached: "&cOsiągnięto maksymalny limit %max% home'ów!"
+  no-homes: "&cNie posiadasz jeszcze żadnych home'ów! Użyj /sethome"
+  no-homes-del: "&eNie posiadasz żadnych ustawionych home'ów."
+  available-homes: "&aDostępne homy: &e%homes%"
+  home-not-found: "&cHome o nazwie '&4%home%&c' nie istnieje!"
+  home-deleted: "&aPomyślnie usunięto home: &e%home%"
+  invalid-name: "&cWprowadź poprawną nazwę dla swojego home! (Użyj liter A-Z i cyfr)"
+  home-set-success: "&aUstawiono home o nazwie: &e%home%"
+  prompt-name: "&aNapisz teraz na czacie nazwę dla swojego home'a &7(lub wpisz '&canuluj&7'):"
+  creation-cancelled: "&cTworzenie home'a zostało anulowane."
+
+titles:
+  home-set:
+    title: "&aHome Ustawiony!"
+    subtitle: "&7Nazwa: &e%home%"
+  teleporting:
+    title: "&eTeleportacja..."
+    subtitle: "&7Za &c%seconds%s &7nie ruszaj się!"
+  teleport-success:
+    title: "&aPrzeteleportowano!"
+    subtitle: "&7Witaj w home: &e%home%"
+  teleport-cancelled-move:
+    title: "&cTeleportacja przerwana!"
+    subtitle: "&7Poruszyłeś się!"
+  teleport-cancelled-damage:
+    title: "&cTeleportacja przerwana!"
+    subtitle: "&7Zostałeś zaatakowany przez gracza!"
