@@ -7,7 +7,6 @@ settings:
   teleport-delay: 10             # Czas odliczania do teleportacji w sekundach
   cancel-on-move: true           # Czy ruch gracza przerywa teleportację
   cancel-on-player-damage: true  # Czy atak innego GRACZA przerywa teleportację
-  cancel-on-mob-damage: false    # Czy atak MOBA przerywa teleportację
 
 gui:
   home-selector-title: "&8Wybierz swój Home"
