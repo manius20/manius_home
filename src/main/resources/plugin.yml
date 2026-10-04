@@ -1,4 +1,4 @@
-name: HomePlugin
+name: manius_home
 version: 1.0.0
 main: pl.sesion16.homeplugin.HomePlugin
 api-version: '1.20'
@@ -6,10 +6,7 @@ author: Sesion16
 commands:
   sethome:
     description: Ustawia dom w Twojej lokalizacji
-    permission: homeplugin.sethome
   home:
     description: Otwiera GUI z wyborem ustawionych home'ów
-    permission: homeplugin.home
   delhome:
     description: Usuwa podany home lub wyświetla listę dostępnych home'ów
-    permission: homeplugin.delhome
